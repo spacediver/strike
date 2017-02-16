@@ -1,0 +1,22 @@
+table :main_proxy do |t|
+  # t.column_name :obfuscation_type
+  t.url           :url
+end
+
+table :main_igaccount do |t|
+  # t.column_name :obfuscation_type
+  t.password_plaintext type: :fixed, string: proc { |row| 'password' }
+end
+
+table :auth_user do |t|
+  # t.column_name :obfuscation_type
+  t.password type: :fixed, string: proc { |row| 'password' }
+  t.email   :email
+end
+
+table :socialaccount_socialapp do |t|
+  # t.column_name :obfuscation_type
+  t.client_id type: :fixed, string: proc { |row| 'client_id' }
+  t.secret type: :fixed, string: proc { |row| 'secret' }
+  t.key type: :fixed, string: proc { |row| 'key' }
+end
